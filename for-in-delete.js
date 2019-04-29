@@ -94,6 +94,8 @@ function secrets(obj) {
       emptyStr += obj[key];
     }
   }
+  return emptyStr;
+}
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -107,11 +109,11 @@ function secrets(obj) {
 //   three: 3
 // }
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
+// for (var key in deleteAllThethings) {
+//   delete deleteAllThethings[key];
 // }
 
-// console.log(deleteAllThethings)
+// console.log(deleteAllThethings);
 
 ////////// PROBLEM 5 //////////
 
@@ -120,11 +122,14 @@ function secrets(obj) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassowd(object) {
+  delete object.password;
+  return object;
+}
 
 ////////// PROBLEM 6 //////////
 
-// Do not edit the code below.
+Do not edit the code below.
 var deleteTheBigNumbers = {
   first: 10,
   second: 20,
@@ -137,8 +142,15 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
-
+function removeBig(obj) {
+  for (var key in obj) {
+    if (obj[key] > 100) {
+      delete obj[key];
+    }
+  }
+  return obj;
+}
+console.log(removeBig(deleteTheBigNumbers));
 ////////// PROBLEM 7 //////////
 
 /*
@@ -148,7 +160,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
+function startsWithK(obj) {
+  for(var key in obj) {
+    if (key.startsWith("k")) {
+      delete obj[key];
+    }
+  }
+  return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -161,4 +180,12 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+function hiddenTreasure(obj) {
+  for(let key in obj) {
+    if(!obj[key].includes("treasure")){
+      delete obj[key];
+    }
+
+  }
+  return obj;
+}
